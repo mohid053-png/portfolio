@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohid Ali Khan Pathan — Systems Analyst & Software Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --navy: #0a0f1e;
+        --navy-mid: #111827;
+        --navy-card: #141c2e;
+        --navy-border: #1e2d45;
+        --accent: #00d4ff;
+        --accent2: #7c3aed;
+        --accent3: #10b981;
+        --gold: #f59e0b;
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --text-dim: #64748b;
+        --white: #ffffff;
+        --glow: 0 0 30px rgba(0, 212, 255, 0.15);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--navy);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2.5rem;
+        background: rgba(10, 15, 30, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+      }
+      .nav-logo {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9rem;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8rem 2.5rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -100px;
+        width: 700px;
+        height: 700px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 212, 255, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(124, 58, 237, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        color: var(--accent);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-tag::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 7vw, 5.5rem);
+        font-weight: 900;
+        line-height: 1.05;
+        color: var(--white);
+        margin-bottom: 0.25rem;
+      }
+      .hero h1 .name-accent {
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero-role {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+        margin-bottom: 2rem;
+        max-width: 560px;
+        line-height: 1.7;
+      }
+
+      /* ── AWARD BANNER ── */
+      .award-banner {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.1),
+          rgba(245, 158, 11, 0.05)
+        );
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 2.5rem;
+        max-width: 520px;
+      }
+      .award-icon {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+      .award-text strong {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.02em;
+      }
+      .award-text span {
+        font-size: 0.78rem;
+        color: #d97706;
+        line-height: 1.4;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--accent);
+        color: var(--navy);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 0.75rem 1.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: #38e5ff;
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid rgba(0, 212, 255, 0.4);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 0.75rem 1.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .btn-outline:hover {
+        background: rgba(0, 212, 255, 0.08);
+        transform: translateY(-2px);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        flex-wrap: wrap;
+      }
+      .stat-item {
+        text-align: left;
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1;
+        display: block;
+      }
+      .stat-num .accent {
+        color: var(--accent);
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-dim);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-top: 0.25rem;
+        display: block;
+      }
+
+      /* ── SECTION BASE ── */
+      section {
+        padding: 6rem 2.5rem;
+      }
+      .section-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--accent);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .section-label::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 1rem;
+      }
+      .section-sub {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      /* ── ABOUT / SKILLS ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 4rem;
+        align-items: start;
+      }
+      .about-text p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+      }
+      .highlight {
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .skills-grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .skill-category {
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .skill-category:hover {
+        border-color: rgba(0, 212, 255, 0.3);
+      }
+      .skill-cat-title {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .skill-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 5px;
+        padding: 0.25rem 0.6rem;
+      }
+
+      /* ── EXPERIENCE ── */
+      .exp-section {
+        background: var(--navy-mid);
+      }
+      .timeline {
+        margin-top: 4rem;
+        position: relative;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 1.5rem;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent),
+          rgba(0, 212, 255, 0),
+          rgba(124, 58, 237, 0.5)
+        );
+      }
+      .exp-item {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+      .exp-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15);
+        margin-top: 0.45rem;
+        flex-shrink: 0;
+        justify-self: center;
+      }
+      .exp-dot.purple {
+        background: var(--accent2);
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+      }
+      .exp-card {
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-radius: 14px;
+        padding: 1.75rem;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .exp-card:hover {
+        border-color: rgba(0, 212, 255, 0.25);
+        box-shadow: var(--glow);
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.4rem;
+      }
+      .exp-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+      .exp-period {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--accent);
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 5px;
+        padding: 0.2rem 0.6rem;
+        white-space: nowrap;
+      }
+      .exp-company {
+        font-size: 0.82rem;
+        color: var(--text-dim);
+        margin-bottom: 1rem;
+      }
+
+      /* ── AWARD HIGHLIGHT ── */
+      .exp-award {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.08),
+          rgba(245, 158, 11, 0.03)
+        );
+        border: 1px solid rgba(245, 158, 11, 0.25);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+      }
+      .exp-award span {
+        font-size: 0.82rem;
+        color: #d97706;
+        line-height: 1.4;
+      }
+      .exp-award strong {
+        color: var(--gold);
+      }
+
+      .exp-bullets {
+        list-style: none;
+      }
+      .exp-bullets li {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 0.6rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+      .exp-bullets li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* ── PROJECTS ── */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin-top: 4rem;
+      }
+      .project-card {
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-radius: 14px;
+        padding: 1.75rem;
+        transition: all 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .project-card:hover {
+        border-color: rgba(0, 212, 255, 0.3);
+        box-shadow: var(--glow);
+      }
+      .project-card:hover::before {
+        opacity: 1;
+      }
+      .project-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--text-dim);
+        margin-bottom: 0.75rem;
+      }
+      .project-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.25rem;
+      }
+      .project-sub {
+        font-size: 0.78rem;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+      .project-desc {
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+      }
+      .project-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .metric-badge {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.25rem 0.6rem;
+        border-radius: 5px;
+      }
+      .metric-green {
+        background: rgba(16, 185, 129, 0.1);
+        color: #34d399;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+      .metric-blue {
+        background: rgba(0, 212, 255, 0.08);
+        color: var(--accent);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+      }
+      .metric-purple {
+        background: rgba(124, 58, 237, 0.1);
+        color: #a78bfa;
+        border: 1px solid rgba(124, 58, 237, 0.2);
+      }
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .tech-pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-dim);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 4px;
+        padding: 0.2rem 0.55rem;
+      }
+
+      /* ── CERTIFICATIONS ── */
+      .certs-section {
+        background: var(--navy-mid);
+      }
+      .certs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+        margin-top: 3rem;
+      }
+      .cert-card {
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: border-color 0.2s;
+      }
+      .cert-card:hover {
+        border-color: rgba(0, 212, 255, 0.3);
+      }
+      .cert-logo {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #ff9900, #ff6d00);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: -0.02em;
+      }
+      .cert-logo.uipath {
+        background: linear-gradient(135deg, #fa4616, #e84c1e);
+      }
+      .cert-name {
+        font-size: 0.87rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.2rem;
+      }
+      .cert-issuer {
+        font-size: 0.75rem;
+        color: var(--text-dim);
+        margin-bottom: 0.4rem;
+      }
+      .cert-valid {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--accent3);
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 4px;
+        padding: 0.15rem 0.5rem;
+        display: inline-block;
+      }
+
+      /* ── PUBLICATIONS ── */
+      .pub-list {
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .pub-card {
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-left: 3px solid var(--accent2);
+        border-radius: 0 12px 12px 0;
+        padding: 1.25rem 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .pub-card:hover {
+        border-color: rgba(124, 58, 237, 0.5);
+      }
+      .pub-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.4rem;
+      }
+      .pub-venue {
+        font-size: 0.78rem;
+        color: var(--text-dim);
+        margin-bottom: 0.5rem;
+      }
+      .pub-doi {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .pub-doi:hover {
+        text-decoration: underline;
+      }
+
+      /* ── CONTACT ── */
+      .contact-section {
+        text-align: center;
+        padding: 8rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 212, 255, 0.04) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .contact-grid {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-radius: 10px;
+        padding: 0.9rem 1.5rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .contact-item:hover {
+        border-color: rgba(0, 212, 255, 0.3);
+        box-shadow: var(--glow);
+        transform: translateY(-2px);
+      }
+      .contact-item-icon {
+        font-size: 1.1rem;
+      }
+      .contact-item-text {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--navy-border);
+        padding: 1.5rem 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      footer p {
+        font-size: 0.75rem;
+        color: var(--text-dim);
+      }
+      .footer-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--accent);
+      }
+
+      /* ── EDUCATION ── */
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-top: 3rem;
+      }
+      .edu-card {
+        background: var(--navy-card);
+        border: 1px solid var(--navy-border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .edu-card:hover {
+        border-color: rgba(0, 212, 255, 0.25);
+      }
+      .edu-degree {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.2rem;
+      }
+      .edu-school {
+        font-size: 0.8rem;
+        color: var(--accent);
+        margin-bottom: 0.6rem;
+      }
+      .edu-details {
+        font-size: 0.78rem;
+        color: var(--text-dim);
+        line-height: 1.6;
+      }
+      .edu-gpa {
+        display: inline-block;
+        margin-top: 0.75rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--accent3);
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 5px;
+        padding: 0.2rem 0.6rem;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem 1.25rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        section {
+          padding: 4rem 1.25rem;
+        }
+        .hero {
+          padding: 7rem 1.25rem 3rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* ── SCROLL ANIMATION ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    
+/* Cursor Animation */
+body{cursor:none;}
+.cursor-dot{
+width:8px;height:8px;background:#00d4ff;border-radius:50%;
+position:fixed;pointer-events:none;z-index:99999;
+transform:translate(-50%,-50%);
+box-shadow:0 0 10px #00d4ff,0 0 25px #00d4ff,0 0 40px #00d4ff;
+}
+.cursor-ring{
+width:40px;height:40px;
+border:1px solid rgba(0,212,255,.5);
+border-radius:50%;
+position:fixed;pointer-events:none;z-index:99998;
+transform:translate(-50%,-50%);
+transition:width .25s ease,height .25s ease,border-color .25s ease;
+}
+.cursor-hover{
+width:70px !important;
+height:70px !important;
+border-color:#7c3aed !important;
+box-shadow:0 0 25px rgba(124,58,237,.5);
+}
+
+</style>
+  </head>
+  <body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">mohid.dev</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-tag">Associate Systems Analyst · TCS</div>
+      <h1><span class="name-accent">Mohid Ali</span><br />Khan Pathan</h1>
+      <p class="hero-role">
+        Systems Analyst & Software Engineer specialising in production
+        monitoring, incident management, API observability, and cloud
+        infrastructure. Building reliable systems at scale.
+      </p>
+
+      <div class="award-banner fade-in">
+        <div class="award-icon">🏆</div>
+        <div class="award-text">
+          <strong>Recognised by TCS ESU Department Head</strong>
+          <span
+            >Appreciated for demonstrating exceptional ownership, technical
+            initiative, and professionalism in resolving critical
+            incidents.</span
+          >
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">↗ Get in touch</a>
+        <a href="#projects" class="btn-outline">View Projects</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Production Systems</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">8.94</span>
+          <span class="stat-label">GPA / 10</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Research Papers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-label">01 — About</div>
+      <h2 class="section-title">
+        Engineer by craft,<br />problem-solver by nature
+      </h2>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>
+            I'm a
+            <span class="highlight">B.Tech Computer Science (AI Core)</span>
+            graduate from KL University with a GPA of 8.94/10, now working as an
+            Associate Software Engineer at
+            <span class="highlight">Tata Consultancy Services</span> — where I
+            was recognised by the ESU Department Head within just 6 months for
+            driving critical incidents to resolution with ownership and
+            professionalism.
+          </p>
+          <p>
+            My daily work spans production database monitoring, optimising SQL &
+            MongoDB queries, building Python automation scripts, and
+            coordinating cross-functional incident response — all in a
+            fast-paced 24x7 enterprise environment.
+          </p>
+          <p>
+            I hold an
+            <span class="highlight">AWS Certified Solutions Architect</span>
+            credential and bring hands-on experience with Docker, CI/CD
+            pipelines, REST APIs, and cloud infrastructure. I thrive at the
+            intersection of systems reliability and engineering efficiency.
+          </p>
+          <p style="color: var(--text-dim); font-size: 0.82rem">
+            📍 Hyderabad / Bengaluru, India &nbsp;·&nbsp; Open to hybrid ·
+            Available immediately
+          </p>
+        </div>
+        <div class="skills-grid fade-in">
+          <div class="skill-category">
+            <div class="skill-cat-title">⚡ Monitoring & Ops</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Application Monitoring</span>
+              <span class="skill-tag">API Health</span>
+              <span class="skill-tag">Anomaly Detection</span>
+              <span class="skill-tag">Incident Management</span>
+              <span class="skill-tag">L1/L2 Escalation</span>
+              <span class="skill-tag">Root Cause Analysis</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-title">🗄️ Databases</div>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">SQL Optimisation</span>
+              <span class="skill-tag">Indexing</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">MSSQL</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-title">☁️ Cloud & DevOps</div>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS EC2/S3/Lambda</span>
+              <span class="skill-tag">CloudWatch</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">GitHub Actions CI/CD</span>
+              <span class="skill-tag">Linux/Bash</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-title">💻 Languages & APIs</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">Postman</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="exp-section">
+      <div class="section-label">02 — Experience</div>
+      <h2 class="section-title">Where I've made an impact</h2>
+
+      <div class="timeline">
+        <div class="exp-item fade-in">
+          <div class="exp-dot"></div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div class="exp-title">Associate Software Engineer</div>
+              <span class="exp-period">2026 – Present</span>
+            </div>
+            <div class="exp-company">Tata Consultancy Services (TCS)</div>
+
+            <div class="exp-award">
+              <span>🏆</span>
+              <span
+                ><strong>Recognised by ESU Department Head</strong> within 6
+                months for technical leadership, ownership of critical issues,
+                and resolving high-priority incidents under deadline pressure
+                with exceptional professionalism.</span
+              >
+            </div>
+
+            <ul class="exp-bullets">
+              <li>
+                Monitor production database systems and data pipelines daily —
+                proactively detecting anomalies and minimising downstream impact
+                on SLA compliance.
+              </li>
+              <li>
+                Write and maintain optimised SQL queries for large-scale data
+                retrieval, validation, and reporting across enterprise systems.
+              </li>
+              <li>
+                Develop Python automation scripts and diagnostic tooling that
+                reduce manual investigation time and speed up resolution of
+                recurring operational issues.
+              </li>
+              <li>
+                Provide L1/L2 technical support with structured root cause
+                analysis and detailed escalation to senior engineers.
+              </li>
+              <li>
+                Coordinate cross-functional incident communication with
+                engineering, operations, and business stakeholders.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div class="exp-dot purple"></div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div class="exp-title">
+                Salesforce Administrator & Developer Intern
+              </div>
+              <span
+                class="exp-period"
+                style="
+                  border-color: rgba(124, 58, 237, 0.3);
+                  color: #a78bfa;
+                  background: rgba(124, 58, 237, 0.08);
+                "
+                >2023 – 2024</span
+              >
+            </div>
+            <div class="exp-company">Salesforce</div>
+            <ul class="exp-bullets">
+              <li>
+                Monitored Salesforce org health through 5 custom reports and 2
+                real-time dashboards, enabling proactive identification of data
+                anomalies and process failures.
+              </li>
+              <li>
+                Configured user profiles, roles, and field-level security across
+                10+ users, ensuring compliance with data protection
+                requirements.
+              </li>
+              <li>
+                Maintained documentation for all configurations, automation
+                workflows, and troubleshooting guides — reducing resolution time
+                for recurring issues.
+              </li>
+              <li>
+                Provided first-level technical support: diagnosing configuration
+                errors, data access issues, and workflow failures with detailed
+                documentation.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-label">03 — Projects</div>
+      <h2 class="section-title">Built, deployed, monitored</h2>
+      <p class="section-sub">
+        Three production systems serving real users — each with end-to-end
+        ownership from architecture to incident response.
+      </p>
+
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <div class="project-num">Project 01</div>
+          <div class="project-name">College ERP System</div>
+          <div class="project-sub">
+            Production Platform Monitoring & Support
+          </div>
+          <p class="project-desc">
+            Full-stack production platform managing real-time data for 1,000+
+            students and 80+ faculty across 6 modules — with end-to-end
+            ownership of availability, monitoring, and incident resolution.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Django</span>
+            <span class="tech-pill">MongoDB</span>
+            <span class="tech-pill">REST APIs</span>
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-num">Project 02</div>
+          <div class="project-name">Car Fandom Platform</div>
+          <div class="project-sub">
+            API Monitoring & Performance Optimisation
+          </div>
+          <p class="project-desc">
+            MERN stack platform serving 500+ records to 200+ concurrent users.
+            Resolved a critical latency incident by profiling search APIs and
+            identifying missing MongoDB indexes as root cause.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-pill">MongoDB</span>
+            <span class="tech-pill">Express</span>
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">JWT</span>
+            <span class="tech-pill">Redis</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-num">Project 03</div>
+          <div class="project-name">AI/ML Pipeline</div>
+          <div class="project-sub">
+            Distributed System Monitoring & Deployment
+          </div>
+          <p class="project-desc">
+            End-to-end ML pipeline processing 70,000+ records with Flask REST
+            microservice handling 50 concurrent inference requests. Improved
+            minority-class recall from 61% to 84% via SMOTE correction.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">TensorFlow</span>
+            <span class="tech-pill">XGBoost</span>
+            <span class="tech-pill">Flask</span>
+            <span class="tech-pill">REST API</span>
+            <span class="tech-pill">Pandas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="certs-section">
+      <div class="section-label">04 — Certifications</div>
+      <h2 class="section-title">Credentials & validation</h2>
+      <div class="certs-grid fade-in">
+        <div class="cert-card">
+          <div class="cert-logo">AWS</div>
+          <div>
+            <div class="cert-name">Solutions Architect – Associate</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+            <span class="cert-valid">✓ Valid 2023–2027</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-logo">AWS</div>
+          <div>
+            <div class="cert-name">Cloud Practitioner</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+            <span class="cert-valid">✓ Valid 2023–2027</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-logo uipath">UI</div>
+          <div>
+            <div class="cert-name">RPA Certified Professional</div>
+            <div class="cert-issuer">UiPath</div>
+            <span class="cert-valid">✓ Valid 2023–2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <div class="section-label">05 — Research</div>
+      <h2 class="section-title">Published research</h2>
+      <div class="pub-list fade-in">
+        <div class="pub-card">
+          <div class="pub-title">
+            Advanced Predictive Modeling for Diabetic Diagnosis: A Hybrid SVM
+            and Deep Learning Framework
+          </div>
+          <div class="pub-venue">Mohid Ali Khan Pathan et al.</div>
+          <a
+            href="https://doi.org/10.52783/tjjpt"
+            class="pub-doi"
+            target="_blank"
+            >↗ doi.org/10.52783/tjjpt</a
+          >
+        </div>
+        <div class="pub-card">
+          <div class="pub-title">
+            Enhancing Image Resolution using Hybrid Model (ESRGAN)
+          </div>
+          <div class="pub-venue">
+            African Journal of Biomedical Research, Vol. 27, No. 4S, November
+            2024 &nbsp;·&nbsp; ISSN: 1119-5096
+          </div>
+          <span
+            style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 0.72rem;
+              color: var(--accent2);
+            "
+            >Peer Reviewed · Published</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" style="background: var(--navy-mid)">
+      <div class="section-label">06 — Education</div>
+      <h2 class="section-title">Academic foundation</h2>
+      <div class="edu-grid fade-in">
+        <div class="edu-card">
+          <div class="edu-degree">
+            B.Tech — Computer Science Engineering (AI Core)
+          </div>
+          <div class="edu-school">KL University &nbsp;·&nbsp; 2021 – 2025</div>
+          <div class="edu-details">
+            Specialisation: AI, Machine Learning, Distributed Systems, Computer
+            Networks & Data Science
+          </div>
+          <div
+            class="edu-details"
+            style="margin-top: 0.5rem; font-size: 0.75rem"
+          >
+            Data Structures & Algorithms · DBMS · OS · System Design · Cloud
+            Computing · Cybersecurity
+          </div>
+          <span class="edu-gpa">GPA: 8.94 / 10</span>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Intermediate — PCM</div>
+          <div class="edu-school">
+            Sri Chaitanya Junior College &nbsp;·&nbsp; 2019 – 2021
+          </div>
+          <div class="edu-details">Physics, Chemistry & Mathematics</div>
+          <span class="edu-gpa">Score: 89%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div class="section-label" style="justify-content: center">
+        07 — Contact
+      </div>
+      <h2 class="section-title">Let's connect</h2>
+      <p class="section-sub" style="margin: 0 auto">
+        Open to new opportunities in systems analysis, SRE, and cloud
+        operations. Available immediately for hybrid or shift-based roles in
+        Hyderabad or Bengaluru.
+      </p>
+      <div class="contact-grid fade-in">
+        <a href="mailto:mohidalip@gmail.com" class="contact-item">
+          <span class="contact-item-icon">✉️</span>
+          <span class="contact-item-text">mohidalip@gmail.com</span>
+        </a>
+        <a href="tel:+919963386486" class="contact-item">
+          <span class="contact-item-icon">📱</span>
+          <span class="contact-item-text">+91 996 338 6486</span>
+        </a>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <span class="contact-item-text">Hyderabad / Bengaluru, India</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Mohid Ali Khan Pathan. All rights reserved.</p>
+      <span class="footer-tag">Available · Immediate Joiner · 24x7 Ready</span>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add("visible"), i * 80);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+  
+<script>
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+let mouseX=0,mouseY=0;
+
+window.addEventListener('mousemove',e=>{
+mouseX=e.clientX; mouseY=e.clientY;
+dot.style.left=mouseX+'px';
+dot.style.top=mouseY+'px';
+});
+
+function animateRing(){
+const currentX=parseFloat(ring.style.left)||mouseX;
+const currentY=parseFloat(ring.style.top)||mouseY;
+ring.style.left=(currentX+(mouseX-currentX)*0.15)+'px';
+ring.style.top=(currentY+(mouseY-currentY)*0.15)+'px';
+requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a,button,.project-card,.exp-card,.cert-card,.edu-card')
+.forEach(el=>{
+el.addEventListener('mouseenter',()=>ring.classList.add('cursor-hover'));
+el.addEventListener('mouseleave',()=>ring.classList.remove('cursor-hover'));
+});
+</script>
+
+</body>
+</html>
